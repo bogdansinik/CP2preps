@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Text Drawing</title>
+
+	<script type="text/javascript">
+		var x0 = 0;
+		var y0 = 0;
+		var down = false;
+		var paragraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		var index = 0;
+
+
+
+		function initLine(event) {
+			var can = document.getElementById("canvas");
+			var ctx = can.getContext("2d");
+
+			x0 = event.x;
+			y0 = event.y;
+			console.log(x0, y0);
+			ctx.moveTo(x0, y0);
+
+		}
+
+
+		function drawLine(event) {
+			if(down) {
+				var can = document.getElementById("canvas");
+				var context = can.getContext("2d");
+
+			
+				var x = event.x;
+				var y = event.y;
+
+				context.strokeStyle = "black";
+				console.log("starting point");
+				console.log(x0, y0);
+				console.log("ending point");
+				console.log(x, y);
+				context.moveTo(x0, y0);
+				context.lineTo(x, y);
+				//context.stroke();
+
+				var font_size = 15 + Math.random() * 10;
+				context.font = font_size.toString() + "px Ariel";
+				context.fillText(paragraph[index],x, y);
+				
+				index = (index + 1) % paragraph.length;
+				console.log((index + 1) % paragraph.length);
+
+				//updating position
+				x0 = event.x;
+				y0 = event.y;
+				
+			}
+
+		}
+
+		function mouseDown(event) {
+			x0 = event.x;
+			y0 = event.y;
+			down = true;
+			console.log(x0, y0);
+		}
+
+		function mouseUp () {
+			down = false;
+			console.log("mouse up");
+		}
+
+
+
+	</script>
+
+
+	<style type="text/css">
+		canvas {
+			border: 2px solid black;
+			cursor: crosshair;
+			margin: 10px auto;
+		}
+
+		html, body {
+			 width: 100%;
+			 height: 100%;
+			 margin: 0px;
+			 overflow: hidden;
+		}
+
+   &:hover {
+   	}
+  
+  span {
+     display: none;
+   }
+
+
+	span {
+	   	font-family: 'Georgia', cursive;
+	 	font-size: 40px;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		color: #000;
+		margin-top: -40px;
+		margin-left: -200px;
+	}
+
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="1000" height="500" onmousedown="mouseDown(event)" onmouseup="mouseUp(event)" onmousemove="drawLine(event)"></canvas>
+	<span id='info'>Click and drag to draw!<span>
+
+</body>
+</html>

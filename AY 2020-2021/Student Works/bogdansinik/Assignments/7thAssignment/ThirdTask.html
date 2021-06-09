@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr,table{
+            width: 100%;
+        }
+    </style>
+    <script>
+        function addCells(myColorNew){
+            var list = document.getElementById("palindromes");
+            var n = list.length;
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            cell1.innerHTML = n;
+            cell2.style.backgroundColor = myColorNew;
+            cell2.innerHTML = myColorNew;
+            
+        }
+        function checkAllWords(){
+            var str = document.getElementById('phrase').value;
+            var words = str.split(' ');
+            var palindromeCounter = 0;
+            for (var i=0; i < words.length; i++) {
+                var current = words[i].toLowerCase();
+                var counter = 0;
+                for (var j = 0; j < current.length; j++) {
+                    if(current.charAt(j)==current.charAt(current.length- j - 1)){
+                        counter++;
+                    }
+                    if(counter == current.length){
+                            palindromeCounter++;
+                            var get_table = document.getElementById("palindromes");
+                            var n = get_table.rows.length;
+                            var row = get_table.insertRow(n);
+
+                            var cell1 = row.insertCell(0);
+                            if(n%2==0){
+                            row.style.backgroundColor = "#c2bdba";
+                            }
+                            cell1.innerHTML ="• "+words[i];
+                       
+                        
+                }
+                document.getElementById('count').innerHTML = 'Number of palindrome(s) is: ' +(n+1).toString();
+                }
+            }
+            
+        }
+
+    </script>
+</head>
+<body>
+    <h1> Palindrome Finder!</h1>
+    <div> Phrase: <input id="phrase" type="text" size="70"/> </div>
+    <br>
+    <div> <button id="find" onclick="checkAllWords(); changeColor()">Find Palindromes</button>
+    </div>
+    <table id="palindromes"></table>
+    <div id="count"></div>
+</body>
+</html>

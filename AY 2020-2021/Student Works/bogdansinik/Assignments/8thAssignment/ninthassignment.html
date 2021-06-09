@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    select{
+        width: 200px;
+        height: 30px;
+        float: left;
+        clear: both;
+        margin: 3px;
+    }
+    #textfield{
+        width: 192px;
+        float: left; 
+        clear: both;
+        margin: 3px;
+        /*background-color: red ;*/
+    }
+    
+    #add{
+        float: left;
+        clear: left;
+        width: 95px;
+        margin: 3px;
+        height: 30px;
+    }
+    
+    #clear{
+        float: left;
+        width: 95px;
+        margin: 3px;
+        height: 30px;
+    }
+    /*.red:invalid {
+        background-color: red;
+    }*/
+</style>
+<script>
+    function checkInput(){
+        var input = document.getElementById("textfield").value;
+        var splitInput = input.split(" ");
+        var counter = 0;
+        for (let i = 0; i < splitInput.length; i++) {
+            for (let j = 1; j < splitInput[i].length; j++) {
+                if(splitInput[i].charCodeAt(j) >= 65 && splitInput[i].charCodeAt(j) <= 90){
+                    counter++;
+                }
+            }
+            
+        }
+        if(splitInput[0].charCodeAt(0) >= 65 && splitInput[0].charCodeAt(0) <= 90 && splitInput[1].charCodeAt(0) >= 65 && splitInput[1].charCodeAt(0) <= 90 && counter == 0){
+            var opt = document.createElement("option");
+            opt.text = input;
+            names.add(opt);
+            document.getElementById("textfield").style.backgroundColor = "white";
+            document.getElementById("textfield").value = '';
+        }else{
+            document.getElementById("textfield").style.backgroundColor = "red";
+        }
+    }
+        
+    
+    function clearInput(){
+        document.getElementById("textfield").value = '';
+        document.getElementById("textfield").style.backgroundColor = "white";
+    }
+</script>
+<body>
+    <form>
+        <select id="names">
+
+        </select>
+        <input type="text" class="red" id="textfield">
+        <button type="button" id="add" onclick="checkInput()">Add</button>
+        <button type="button" id="clear" onclick="clearInput()">Clear</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+  .linkbtn {
+    list-style-type: none; 
+    }
+    
+    .mylink:link, .mylink:visited {
+      background-color: orange;
+      color: black;
+      border: 1px solid white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-family: 'Acme';
+      font-size: 22px;
+      font-weight: bold;
+      display: block;
+      width: 140px;
+    }
+    
+    .mylink:hover, .mylink:active {
+      background-color: black;
+      color: white;
+    }

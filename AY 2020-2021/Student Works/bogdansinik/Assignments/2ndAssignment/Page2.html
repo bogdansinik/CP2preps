@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+</head>
+<body style="background-color: chartreuse;">
+    <form action="Page3.html" method="POST">
+        <fieldset>
+            <legend ><b>Personal info</b></legend>
+            <br>
+            <label for="fname">First name: </label>
+            <input type="text" name="fname" id="fname">
+            <br><br>
+            <label for="lname">Last name: </label>
+            <input type="text" name="lname" id="lname">
+            <br><br>
+            <label for="date">Enter your birth date: </label>
+            <input type="date" name="bday" id="bday" min="1970-01-01" max="2003-01-01">
+            <br><br>
+            <label for="radiobtn">Gender: </label>
+            <label for="male">Male</label>
+            <input type="radio" name="radiobtn" id="male">
+            <label for="female">Female</label>
+            <input type="radio" name="radiobtn" id="female">
+            <label for="other">Other</label>
+            <input type="radio" name="radiobtn" id="other">
+            <br><br>
+        </fieldset>
+        <fieldset>
+            <legend ><b>Login info</b></legend>
+            <label for="user">Username: </label>
+            <input type="text" name="user" id="user">
+            <br><br>
+            <label for="pass">Password: </label>
+            <input type="password" name="pass" id="pass">
+            <br><br>
+            <label for="confpass">Confirm Password: </label>
+            <input type="password" name="confpass" id="confpass">
+            <br><br>
+            <label for="mymail">E-Mail: </label>
+            <input type="email" name="mymail" id="mymail">
+            <br><br>
+            <label for="mymail">Confirm E-Mail: </label>
+            <input type="email" name="confmymail" id="confmymail">
+        </fieldset>
+        <fieldset>
+            <legend><b>Reason for joining our Meme-page</b></legend>
+            <textarea name="reason" id="reason" cols="50" rows="10" style="text-align: center;">Please write something here! XD</textarea>
+        </fieldset>
+        <br>
+        <div style="text-align: center;">
+        <input type="submit" name="submitbtn" id="submitbtn">
+        <input type="reset" name="resetbtn" id="resetbtn">
+        </div>
+    </form>
+    
+    <div style="position:absolute; bottom: 5px;">
+        <a href="Page1.html"><b>Home</b></a>
+        <a href="Page4.html"><b>Meme upload</b></a>
+    </div> 
+</body>
+</html>
